@@ -12,6 +12,17 @@ def encode(input):
 
     return my_string
 
+#i gotchu bro
+def decode(input):
+    num_list=[]
+    ans=''
+    for i in range(len(input)):
+        num_list.append(int(input[i]))
+    num_list = [num-3 for num in num_list]
+    for num in num_list:
+        ans += f'{num}'
+    return ans
+
 def main():
     while True:
 
@@ -24,19 +35,19 @@ Menu
         ''')
 
         option = int(input('Please enter an option: '))
+        if option == 3:
+            quit()
 
-        if option == 1:
+        elif option == 1:
             original_password = input('Please enter your password to encode: ')
             encoded_password = encode(original_password)
             print('Your password has been encoded and stored!')
             continue
 
         elif option == 2:
-            print(f'The encoded password is {encoded_password} and the original password is {original_password}')
+            original_password=decode(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {original_password}.')
             continue
-
-        else:
-            break
 
 if __name__ == '__main__':
     main()
